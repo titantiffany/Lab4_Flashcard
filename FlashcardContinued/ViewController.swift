@@ -10,7 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    
     @IBOutlet weak var frontLabel: UILabel!
+    @IBOutlet weak var backLabel: UILabel!
+    
+    @IBOutlet weak var pencilEmoji: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +31,43 @@ class ViewController: UIViewController {
         //We know the Navigation Controller only contains a Creation View Controller
         let creationController = navigationController.topViewController as! CreationViewController
         
+        if segue.identifier == "EditSegue"{
+            
+        creationController.initialQuestion = frontLabel.text
+        creationController.initialAnswer = backLabel.text
+            
+        }
+       
         //We set the flashcardsController property to self
         creationController.flashcardsController = self
+        
+        
     }
 
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
-        frontLabel.isHidden = true
+        
+        if( frontLabel.isHidden == false){
+            frontLabel.isHidden = true
+            backLabel.isHidden = false
+        }else if (backLabel.isHidden == false){
+            backLabel.isHidden = true
+            frontLabel.isHidden = false
+        }
+        
+        if( pencilEmoji.isHidden == false){
+            pencilEmoji.isHidden = true
+        } else{
+            pencilEmoji.isHidden = false
+        }
+       
     }
     
     func updateFlashcard(question: String, answer: String) {
         
-        //do stuff 
+        frontLabel.text = question
+        backLabel.text = answer
+        
     }
     
     
