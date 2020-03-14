@@ -32,40 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "13"
             endingLineNumber = "13"
-            landmarkName = "ViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "D7F9F8EE-653C-45FE-B34D-991EB9D4D27A - 40a05c0908062100"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlashcardContinued.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; FlashcardContinued.ViewController"
-                  moduleName = "FlashcardContinued"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bennys/Library/Mobile%20Documents/com~apple~CloudDocs/FlashcardContinued/FlashcardContinued/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "182">
-               </Location>
-               <Location
-                  uuid = "D7F9F8EE-653C-45FE-B34D-991EB9D4D27A - 50496835d2ad925b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlashcardContinued.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;FlashcardContinued.ViewController&gt;"
-                  moduleName = "FlashcardContinued"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bennys/Library/Mobile%20Documents/com~apple~CloudDocs/FlashcardContinued/FlashcardContinued/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "107">
-               </Location>
-            </Locations>
+            landmarkName = "Flashcard"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
