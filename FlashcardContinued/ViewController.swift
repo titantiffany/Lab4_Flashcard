@@ -18,6 +18,7 @@ class ViewController: UIViewController {
 
     
     
+    @IBOutlet weak var card: UIView!
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var pencilEmoji: UIButton!
@@ -70,23 +71,57 @@ class ViewController: UIViewController {
 
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
-        
-        if( frontLabel.isHidden == false){
+        flipFlashcard()
+    }
+    
+    func flipFlashcard(){
+      
+       
+        if( frontLabel.isHidden){
+            frontLabel.isHidden = false
+            backLabel.isHidden = true
+            
+            UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations:{
+                self.backLabel.isHidden = true
+            })
+            
+        }else{
             frontLabel.isHidden = true
             backLabel.isHidden = false
-        }else if (backLabel.isHidden == false){
-            backLabel.isHidden = true
-            frontLabel.isHidden = false
-        }
-        
-        if( pencilEmoji.isHidden == false){
-            pencilEmoji.isHidden = true
-        } else{
-            pencilEmoji.isHidden = false
+            
+            UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations:{
+                self.frontLabel.isHidden = true
+            })
         }
        
     }
     
+    func animateCardOut(){
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        }, completion: { finished in
+           
+            //Update labels
+            self.updateLabels()
+            
+            //Run other animation
+            self.animateCardIn()
+        })
+        
+    }
+    
+    func animateCardIn(){
+        
+       
+        //Start on the right side(don't animate this
+        card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.card.transform = CGAffineTransform.identity
+        }
+        
+    }
     
     @IBAction func didTapOnNext(_ sender: Any) {
         
@@ -98,6 +133,10 @@ class ViewController: UIViewController {
         
         //udpate buttons
         updateNextPrevButtons()
+        
+        animateCardOut()
+        
+       
     }
     
     
@@ -111,6 +150,9 @@ class ViewController: UIViewController {
                
         //udpate buttons
         updateNextPrevButtons()
+        
+        animateCardIn()
+        
         
     }
     
@@ -172,6 +214,9 @@ class ViewController: UIViewController {
         //Update labels
         frontLabel.text = currentFlashcard.question
         backLabel.text = currentFlashcard.answer
+        
+      //animateCardOut()
+        
     }
     
     func saveAllFlashcardsToDisk(){
